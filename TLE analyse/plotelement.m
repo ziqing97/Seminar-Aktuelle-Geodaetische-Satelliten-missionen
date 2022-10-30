@@ -1,4 +1,5 @@
 function [] = plotelement(data)
+% well, just do some plotting things
 figure
 subplot(3,1,1)
 plot(data.time,data.e)
