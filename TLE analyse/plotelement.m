@@ -30,7 +30,9 @@ ylabel('inclination')
 datetick('x')
 
 subplot(3,2,5)
+hold on
 plot(data.time,data.mean_anomaly)
+plot(data.time,ones(length(data.time),1)*270)
 title([name,' mean anomaly'])
 xlabel('Time')
 ylabel('mean_anomaly')
