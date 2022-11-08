@@ -41,8 +41,20 @@ plotelement(data_S3A,'Sentinel-3A');
 plotelement(data_SWARM_C,'SWARM-C');
 
 %% plot the differ for a and b
-plotetaxi(data_GOCE)
+plotetaxi(data_GOCE, 'GOCE')
 
-plotetaxi(data_GRACE1)
+plotetaxi(data_CHAMP, 'CHAMP')
 
-plotetaxi(data_GRACE2)
+plotetaxi(data_S3A,'S3A')
+
+plotetaxi(data_S3B, 'S3B')
+
+plotetaxi(data_GRACE1, 'GRACE 1')
+
+plotetaxi(data_GRACE2, 'GRACE 2')
+
+plotetaxi(data_SWARM_A, 'SWARM A')
+
+plotetaxi(data_SWARM_B, 'SWARM B')
+
+plotetaxi(data_SWARM_C, 'SWARM C')
