@@ -1,47 +1,39 @@
 function [] = plotelement(data,name)
+xmin = data.time(1) - 60;
+xmax = data.time(end) + 60;
+
 % well, just do some plotting things
-figure
-subplot(3,2,1)
+fig1 = figure;
+subplot(3,1,1)
 plot(data.time,data.e)
 title([name,' eccentricity'])
 xlabel('Time')
 ylabel('Eccentricity')
+set(gca,'FontSize',18)
 datetick('x')
+xlim([xmin,xmax])
 
-subplot(3,2,2)
+subplot(3,1,3)
 plot(data.time,data.a)
+
 title([name,' semi-major axis'])
 xlabel('Time')
 ylabel('semi-major axis')
+set(gca,'FontSize',18)
 datetick('x')
+xlim([xmin,xmax])
 
-subplot(3,2,3)
-plot(data.time,data.b)
-title([name,' semi-minor axis'])
-xlabel('Time')
-ylabel('semi-minor axis')
-datetick('x')
-
-subplot(3,2,4)
-plot(data.time,data.inclination)
-title([name,' inclination'])
-xlabel('Time')
-ylabel('inclination')
-datetick('x')
-
-subplot(3,2,5)
+subplot(3,1,2)
 hold on
-plot(data.time,data.mean_anomaly)
-plot(data.time,ones(length(data.time),1)*270)
-title([name,' mean anomaly'])
+plot(data.time,data.AoP)
+plot(data.time,ones(length(data.time),1)*90,"LineWidth",2)
+title([name,'Argument or Perigee'])
 xlabel('Time')
-ylabel('mean_anomaly')
+ylabel('Argument or Perigee')
+set(gca,'FontSize',18)
 datetick('x')
+xlim([xmin,xmax])
 
-subplot(3,2,6)
-plot(data.time,data.mean_motion)
-title([name,' mean motion'])
-xlabel('Time')
-ylabel('mean motion')
-datetick('x')
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+saveas(fig1,name,"png")
 end
