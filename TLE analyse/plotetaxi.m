@@ -1,6 +1,6 @@
-function [] = plotetaxi(data, name)
-xi = data.e .* cosd(data.mean_anomaly);
-eta = data.e .* sind(data.mean_anomaly);
+function [] = plotetaxi(data, name, year_start)
+xi = data.e .* cosd(data.AoP);
+eta = data.e .* sind(data.AoP);
 
 time = datetime(data.time,"ConvertFrom","datenum");
 year_change = [];
@@ -18,14 +18,29 @@ year_neu = [year_neu, year];
 j = 1;
 legende = [];
 figure
+year_neu_ge = [];
+year_change_ge = [];
 for i = 1:length(year_change)
-    plot(xi(j:year_change(i)),eta(j:year_change(i)),'color', [rand(3,1)])
-    hold on
-    legende = [legende, string(year_neu(i))];
+    if year_neu(i) >= year_start
+        year_neu_ge = [year_neu_ge, year_neu(i)];
+        year_change_ge = [year_change_ge, year_change(i)];
+    end
+end
+
+for i = 1:length(year_change)
+    if ismember(year_change(i),year_change_ge)
+        plot(xi(j:year_change(i)),eta(j:year_change(i)),'color', "r")
+        hold on
+        legende = [legende, string(year_neu(i))];
+    else 
+        plot(xi(j:year_change(i)),eta(j:year_change(i)),'color', "b")
+        hold on
+        legende = [legende, string(year_neu(i))];
+    end
     j = year_change(i)+1;
 end
 
-plot(xi(j:end),eta(j:end))
+plot(xi(j:end),eta(j:end),'r')
 hold on
 legend(legende)
 grid on
