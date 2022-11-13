@@ -33,39 +33,39 @@ file_SWARM_C = "./data/SWARM_C.tle";
 data_SWARM_C = readtle(file_SWARM_C);
 
 %% Plot
-plotetaxi(data_GOCE, 'GOCE')
+plotelement(data_GOCE,'GOCE',[])
 
-plotetaxi(data_CHAMP, 'CHAMP')
+plotelement(data_CHAMP,'CHAMP',[731559,732759])
 
-plotetaxi(data_S3A,'S3A')
+plotelement(data_S3A,'S3A',[736522,738530])
 
-plotetaxi(data_S3B, 'S3B')
+plotelement(data_S3B,'S3B',[737387])
 
-plotetaxi(data_GRACE1, 'GRACE 1')
+plotelement(data_GRACE1,'GRACE 1',[])
 
-plotetaxi(data_GRACE2, 'GRACE 2')
+plotelement(data_GRACE2,'GRACE 2',[])
 
-plotetaxi(data_SWARM_A, 'SWARM A')
+plotelement(data_SWARM_A,'SWARM A',[735682])
 
-plotetaxi(data_SWARM_B, 'SWARM B')
+plotelement(data_SWARM_B,'SWARM B',[735674,738597])
 
-plotetaxi(data_SWARM_C, 'SWARM C')
+plotelement(data_SWARM_C,'SWARM C',[735711])
 
 %% plot
-plotetaxi(data_GOCE, 'GOCE',2009)
+plotetaxi(data_GOCE,'GOCE',[])
 
-plotetaxi(data_CHAMP, 'CHAMP',2003)
+plotetaxi(data_CHAMP,'CHAMP',[731559,732759])
 
-plotetaxi(data_S3A,'S3A', 2017)
+plotetaxi(data_S3A,'S3A',[736522,738530])
 
-plotetaxi(data_S3B, 'S3B',2019)
+plotetaxi(data_S3B,'S3B',[737387])
 
-plotetaxi(data_GRACE1, 'GRACE 1',2010)
+plotetaxi(data_GRACE1,'GRACE 1',[])
 
-plotetaxi(data_GRACE2, 'GRACE 2',2010)
+plotetaxi(data_GRACE2,'GRACE 2',[])
 
-plotetaxi(data_SWARM_A, 'SWARM A',2015)
+plotetaxi(data_SWARM_A,'SWARM A',[735682])
 
-plotetaxi(data_SWARM_B, 'SWARM B',2015)
+plotetaxi(data_SWARM_B,'SWARM B',[735674,738597])
 
-plotetaxi(data_SWARM_C, 'SWARM C',2015)
+plotetaxi(data_SWARM_C,'SWARM C',[735711])
