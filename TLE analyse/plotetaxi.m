@@ -57,7 +57,7 @@ grid on
 title(name)
 xlabel('\xi')
 ylabel('\eta')
-set(gca,'FontSize',32)
+set(gca,'FontSize',16)
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
 saveas(fig1,['etaxi_',name],"png")
 end
