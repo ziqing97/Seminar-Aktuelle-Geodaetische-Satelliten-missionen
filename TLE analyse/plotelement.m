@@ -15,10 +15,10 @@ for i=1:length(time)-1
         ' --- ',datestr(datetime(round(time(i+1)),'ConvertFrom','datenum'))];
 end
 title([name,' eccentricity'])
-xlabel('Time')
-ylabel('Eccentricity')
+%xlabel('Time')
+ylabel('Eccentricity','FontSize',2)
 legend(legende)
-set(gca,'FontSize',22)
+set(gca,'FontSize',11)
 datetick('x')
 xlim([xmin,xmax])
 
@@ -26,12 +26,12 @@ subplot(3,1,3)
 hold on
 for i=1:length(time)-1
     id = data.time>=time(i) & data.time<=time(i+1);
-    plot(data.time(id),data.a(id))
+    plot(data.time(id),data.a(id)/1000-6371)
 end
-title([name,' semi-major axis'])
+title([name,' height'])
 xlabel('Time')
-ylabel('semi-major axis')
-set(gca,'FontSize',22)
+ylabel('height [km]')
+set(gca,'FontSize',11)
 datetick('x')
 xlim([xmin,xmax])
 
@@ -42,10 +42,11 @@ for i=1:length(time)-1
     plot(data.time(id),data.AoP(id))
 end
 plot(data.time,ones(length(data.time),1)*90,"LineWidth",2,'color','k')
-title([name,' Argument or Perigee'])
-xlabel('Time')
-ylabel('Argument or Perigee')
-set(gca,'FontSize',22)
+title([name,' Argument of Perigee'])
+%xlabel('Time')
+ylabel('Argument of Perigee [°]')
+yticks([0 90 180 270 360])
+set(gca,'FontSize',11)
 datetick('x')
 xlim([xmin,xmax])
 
