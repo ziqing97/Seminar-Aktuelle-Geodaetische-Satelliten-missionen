@@ -64,5 +64,5 @@ yticks(0:45:360)
 xlim([xmin,xmax])
 
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
-saveas(fig1,['element_',name],"png")
+saveas(fig1,['img/element_',name],"png")
 end

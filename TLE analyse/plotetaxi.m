@@ -27,5 +27,5 @@ set(gca,'FontSize',16)
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
 
 % save the plots
-saveas(fig1,['etaxi_',name],"png")
+saveas(fig1,['img/etaxi_',name],"png")
 end
