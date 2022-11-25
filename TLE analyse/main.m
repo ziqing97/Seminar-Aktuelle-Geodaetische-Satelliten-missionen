@@ -70,7 +70,7 @@ plotetaxi(data_SWARM_B,'SWARM B',[735674,738597])
 
 plotetaxi(data_SWARM_C,'SWARM C',[735711])
 
-%% Compare S3A ans S3B
+%% Compare S3A and S3B
 compare_timeseries({data_S3A,data_S3B},{'S3A','S3B'})
 
 %% Compare Swarm A,B,C

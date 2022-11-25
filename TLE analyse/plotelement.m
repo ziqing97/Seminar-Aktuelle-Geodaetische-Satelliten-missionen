@@ -54,7 +54,6 @@ for i=1:length(time)-1
 end
 plot(data.time,ones(length(data.time),1)*90,"LineWidth",2,'color','k')
 title([name,' Argument of Perigee'])
-%xlabel('Time')
 ylabel('Argument of Perigee [°]')
 yticks([0 90 180 270 360])
 set(gca,'FontSize',11)
