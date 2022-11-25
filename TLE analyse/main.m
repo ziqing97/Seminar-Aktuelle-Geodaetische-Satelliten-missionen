@@ -69,3 +69,5 @@ plotetaxi(data_SWARM_A,'SWARM A',[735682])
 plotetaxi(data_SWARM_B,'SWARM B',[735674,738597])
 
 plotetaxi(data_SWARM_C,'SWARM C',[735711])
+
+%% Compare S3A ans S3B

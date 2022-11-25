@@ -1,4 +1,4 @@
-function [] = plotelement(data,name,time_split)
+function [] = compare_timeseries(data,name,time_split)
 xmin = data.time(1) - 60;
 xmax = data.time(end) + 60;
 

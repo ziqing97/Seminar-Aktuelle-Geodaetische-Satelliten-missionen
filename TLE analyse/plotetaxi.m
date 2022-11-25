@@ -51,6 +51,7 @@ for i=1:length(time)-1
     legende{i} = [datestr(datetime(round(time(i)),'ConvertFrom','datenum')),...
         ' --- ',datestr(datetime(round(time(i+1)),'ConvertFrom','datenum'))];
 end
+axis equal;
 
 legend(legende)
 grid on
