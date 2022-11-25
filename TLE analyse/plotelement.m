@@ -1,11 +1,17 @@
 function [] = plotelement(data,name,time_split)
+
+% get the xlimits
 xmin = data.time(1) - 60;
 xmax = data.time(end) + 60;
 
+% time for different phases
 time = [data.time(1),time_split,data.time(end)];
 legende = cell(length(time)-1,1);
+
 % well, just do some plotting things
 fig1 = figure;
+
+% e
 subplot(3,1,1)
 hold on
 for i=1:length(time)-1
@@ -15,7 +21,6 @@ for i=1:length(time)-1
         ' --- ',datestr(datetime(round(time(i+1)),'ConvertFrom','datenum'))];
 end
 title([name,' eccentricity'])
-%xlabel('Time')
 ylabel('Eccentricity','FontSize',2)
 legend(legende)
 set(gca,'FontSize',11)
@@ -24,6 +29,7 @@ grid on
 yticks(0:90:360)
 xlim([xmin,xmax])
 
+% height
 subplot(3,1,3)
 hold on
 for i=1:length(time)-1
@@ -39,6 +45,7 @@ grid on
 yticks(0:45:360)
 xlim([xmin,xmax])
 
+% AoP
 subplot(3,1,2)
 hold on
 for i=1:length(time)-1

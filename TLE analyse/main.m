@@ -32,7 +32,7 @@ data_SWARM_B = readtle(file_SWARM_B);
 file_SWARM_C = "./data/SWARM_C.tle";
 data_SWARM_C = readtle(file_SWARM_C);
 
-%% Plot
+%% Plot timeseries
 plotelement(data_GOCE,'GOCE',[735525])
 
 plotelement(data_CHAMP,'CHAMP',[731559,732759])
@@ -51,7 +51,7 @@ plotelement(data_SWARM_B,'SWARM B',[735674,738597])
 
 plotelement(data_SWARM_C,'SWARM C',[735711])
 
-%% plot
+%% Plot eta and xi
 plotetaxi(data_GOCE,'GOCE',[735525])
 
 plotetaxi(data_CHAMP,'CHAMP',[731559,732759]) 
@@ -71,3 +71,7 @@ plotetaxi(data_SWARM_B,'SWARM B',[735674,738597])
 plotetaxi(data_SWARM_C,'SWARM C',[735711])
 
 %% Compare S3A ans S3B
+compare_timeseries({data_S3A,data_S3B},{'S3A','S3B'})
+
+%% Compare Swarm A,B,C
+compare_timeseries({data_SWARM_A,data_SWARM_B,data_SWARM_C},{'SWARM-A','SWARM-B','SWARM-C'})
