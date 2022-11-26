@@ -26,7 +26,6 @@ legend(legende)
 set(gca,'FontSize',11)
 datetick('x')
 grid on
-yticks(0:90:360)
 xlim([xmin,xmax])
 
 % height
@@ -42,7 +41,6 @@ ylabel('height [km]')
 set(gca,'FontSize',11)
 datetick('x')
 grid on
-yticks(0:45:360)
 xlim([xmin,xmax])
 
 % AoP
