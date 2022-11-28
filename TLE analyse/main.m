@@ -33,15 +33,15 @@ file_SWARM_C = "./data/SWARM_C.tle";
 data_SWARM_C = readtle(file_SWARM_C);
 
 %% Plot timeseries
-plotelement(data_GOCE,'GOCE',[735525])
+plotelement(data_GOCE,'GOCE',[])
 
 plotelement(data_CHAMP,'CHAMP',[731559,732759])
 
-plotelement(data_S3A,'S3A',[736522,738530])
+plotelement(data_S3A,'S3A',[datenum(2016,7,12),738530])
  
-plotelement(data_S3B,'S3B',[737387])
+plotelement(data_S3B,'S3B',[datenum(2018,10,17),datenum(2018,11,22)])
  
-plotelement(data_GRACE1,'GRACE 1',[736947])
+plotelement(data_GRACE1,'GRACE 1',[])
 
 plotelement(data_GRACE2,'GRACE 2',[])
 
@@ -52,15 +52,15 @@ plotelement(data_SWARM_B,'SWARM B',[735674,738597])
 plotelement(data_SWARM_C,'SWARM C',[735711])
 
 %% Plot eta and xi
-plotetaxi(data_GOCE,'GOCE',[735525])
+plotetaxi(data_GOCE,'GOCE',[])
 
 plotetaxi(data_CHAMP,'CHAMP',[731559,732759]) 
 
-plotetaxi(data_S3A,'S3A',[736522,738530])
+plotetaxi(data_S3A,'S3A',[datenum(2016,7,12),738530])
 
-plotetaxi(data_S3B,'S3B',[737387])
+plotetaxi(data_S3B,'S3B',[datenum(2018,10,17),datenum(2018,11,22)])
 
-plotetaxi(data_GRACE1,'GRACE 1',[736947])
+plotetaxi(data_GRACE1,'GRACE 1',[])
 
 plotetaxi(data_GRACE2,'GRACE 2',[])
 
@@ -71,7 +71,10 @@ plotetaxi(data_SWARM_B,'SWARM B',[735674,738597])
 plotetaxi(data_SWARM_C,'SWARM C',[735711])
 
 %% Compare S3A and S3B
-compare_timeseries({data_S3A,data_S3B},{'S3A','S3B'})
+t_s3a = datenum(2016,7,12);
+t_s3b = datenum(2018,11,22);
+compare_timeseries_sentinel({data_S3A,data_S3B},{'S3A','S3B'},[t_s3a,t_s3b])
 
 %% Compare Swarm A,B,C
-compare_timeseries({data_SWARM_A,data_SWARM_B,data_SWARM_C},{'SWARM-A','SWARM-B','SWARM-C'})
+compare_timeseries_swarm({data_SWARM_A,data_SWARM_B,data_SWARM_C},...
+    {'SWARM-A','SWARM-B','SWARM-C'},[])

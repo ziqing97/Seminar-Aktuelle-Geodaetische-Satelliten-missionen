@@ -23,7 +23,7 @@ end
 title([name,' eccentricity'])
 ylabel('Eccentricity','FontSize',2)
 legend(legende)
-set(gca,'FontSize',11)
+set(gca,'FontSize',16)
 datetick('x')
 grid on
 xlim([xmin,xmax])
@@ -38,7 +38,7 @@ end
 title([name,' height'])
 xlabel('Time')
 ylabel('height [km]')
-set(gca,'FontSize',11)
+set(gca,'FontSize',16)
 datetick('x')
 grid on
 xlim([xmin,xmax])
@@ -54,7 +54,7 @@ plot(data.time,ones(length(data.time),1)*90,"LineWidth",2,'color','k')
 title([name,' Argument of Perigee'])
 ylabel('Argument of Perigee [°]')
 yticks([0 90 180 270 360])
-set(gca,'FontSize',11)
+set(gca,'FontSize',16)
 datetick('x')
 grid on
 yticks(0:45:360)

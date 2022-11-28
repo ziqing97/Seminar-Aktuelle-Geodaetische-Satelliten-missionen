@@ -1,4 +1,4 @@
-function [] = compare_timeseries(data_list,name_list)
+function [] = compare_timeseries_sentinel(data_list,name_list,commossion_time)
 % 
 
 % get the x limit
@@ -29,12 +29,13 @@ fig1 = figure;
 subplot(3,1,1)
 hold on
 for j=1:length(data_list)
-    plot(data_list{j}.time,data_list{j}.e)
+    id = data_list{j}.time>commossion_time(j);
+    plot(data_list{j}.time(id),data_list{j}.e(id))
 end
 title([name,' eccentricity'])
 ylabel('Eccentricity','FontSize',2)
 legend(name_list)
-set(gca,'FontSize',11)
+set(gca,'FontSize',16)
 datetick('x')
 grid on
 xlim([xmin,xmax])
@@ -43,12 +44,13 @@ xlim([xmin,xmax])
 subplot(3,1,3)
 hold on
 for j=1:length(data_list)
-    plot(data_list{j}.time,data_list{j}.a/1000-6371)
+    id = data_list{j}.time>commossion_time(j);
+    plot(data_list{j}.time(id),data_list{j}.a(id)/1000-6371)
 end
 title([name,' height'])
 xlabel('Time')
 ylabel('height [km]')
-set(gca,'FontSize',11)
+set(gca,'FontSize',16)
 datetick('x')
 grid on
 xlim([xmin,xmax])
@@ -57,17 +59,19 @@ xlim([xmin,xmax])
 subplot(3,1,2)
 hold on
 for j=1:length(data_list)
-    plot(data_list{j}.time,data_list{j}.AoP)
+    id = data_list{j}.time>commossion_time(j);
+    plot(data_list{j}.time(id),data_list{j}.AoP(id))
 end
 plot([xmin,xmax],ones(2,1)*90,"LineWidth",2,'color','k') % plot the 90 degree line
 title([name,' Argument of Perigee'])
 ylabel('Argument of Perigee [°]')
 yticks([0 90 180 270 360])
-set(gca,'FontSize',11)
+set(gca,'FontSize',16)
 datetick('x')
 grid on
 yticks(0:45:360)
 xlim([xmin,xmax])
+
 
 % save the plot
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
