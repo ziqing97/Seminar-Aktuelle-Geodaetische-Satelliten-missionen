@@ -1,4 +1,4 @@
-function [] = compare_timeseries_swarm(data_list,name_list)
+function [] = compare_timeseries_swarm(data_list,name_list,commossion_time)
 % 
 
 % get the x limit
@@ -62,10 +62,11 @@ end
 plot([xmin,xmax],ones(2,1)*90,"LineWidth",2,'color','k') % plot the 90 degree line
 title([name,' Argument of Perigee'])
 ylabel('Argument of Perigee [°]')
+yticks([0 90 180 270 360])
 set(gca,'FontSize',16)
 datetick('x')
 grid on
-yticks(0:45:315)
+yticks(0:45:360)
 xlim([xmin,xmax])
 
 

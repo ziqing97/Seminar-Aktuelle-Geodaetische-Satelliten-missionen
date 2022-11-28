@@ -53,10 +53,11 @@ end
 plot(data.time,ones(length(data.time),1)*90,"LineWidth",2,'color','k')
 title([name,' Argument of Perigee'])
 ylabel('Argument of Perigee [°]')
+yticks([0 90 180 270 360])
 set(gca,'FontSize',16)
 datetick('x')
 grid on
-yticks(0:45:315)
+yticks(0:45:360)
 xlim([xmin,xmax])
 
 set(gcf,'units','normalized','outerposition',[0 0 1 1])

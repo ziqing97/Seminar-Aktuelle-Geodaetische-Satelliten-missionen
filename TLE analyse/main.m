@@ -77,4 +77,4 @@ compare_timeseries_sentinel({data_S3A,data_S3B},{'S3A','S3B'},[t_s3a,t_s3b])
 
 %% Compare Swarm A,B,C
 compare_timeseries_swarm({data_SWARM_A,data_SWARM_B,data_SWARM_C},...
-    {'SWARM-A','SWARM-B','SWARM-C'})
+    {'SWARM-A','SWARM-B','SWARM-C'},[])
