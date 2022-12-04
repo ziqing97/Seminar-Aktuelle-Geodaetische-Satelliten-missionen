@@ -3,6 +3,8 @@ function tle_data = read_all_tle(reload)
 
 % if reload == 1: regenerate all data from tle file in a struct
 % if reload == 0: read this struct from a generated mat file
+
+
 if reload
     tle_data = struct;
     tle_file_list = dir('./data/tle');
@@ -12,7 +14,8 @@ if reload
             path = [tle_file_list(i).folder,'\',tle_file_list(i).name];
             tle_data(j).name = tle_file_list(i).name(1:end-3);
             tle_data(j).data = readtle(path);
-            if ~mod(j,5)
+            % so we know how many files are done
+            if ~mod(j,10)
                 fprintf('%d files imported successfully!\n',j)
             end
             j = j+1;
