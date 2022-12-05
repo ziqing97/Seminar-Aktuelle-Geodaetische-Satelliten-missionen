@@ -12,7 +12,7 @@ if reload
     for i=1:length(tle_file_list)
         if (tle_file_list(i).name ~= ".") && (tle_file_list(i).name ~= "..") && (tle_file_list(i).name ~= "catalog.txt")
             path = [tle_file_list(i).folder,'\',tle_file_list(i).name];
-            tle_data(j).name = tle_file_list(i).name(1:end-3);
+            tle_data(j).name = tle_file_list(i).name(1:end-4);
             tle_data(j).data = readtle(path);
             % so we know how many files are done
             if ~mod(j,10)
