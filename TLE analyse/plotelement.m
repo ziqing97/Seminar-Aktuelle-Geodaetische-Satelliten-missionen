@@ -33,11 +33,20 @@ subplot(3,1,3)
 hold on
 for i=1:length(time)-1
     id = data.time>=time(i) & data.time<=time(i+1);
-    plot(data.time(id),data.a(id)/1000-6371)
+    if name == 'S3A' | name == 'S3B'
+        plot(data.time(id),(data.a(id)/1000-6371-796)*1000)
+    else
+        plot(data.time(id),data.a(id)/1000-6371)
+    end
 end
 title([name,' height'])
 xlabel('Time')
-ylabel('height [km]')
+if name == 'S3A' | name == 'S3B'
+    ylabel('h minus 796km [m]')
+    ylim([0,1500])
+else
+    ylabel('height [km]')
+end
 set(gca,'FontSize',16)
 datetick('x')
 grid on

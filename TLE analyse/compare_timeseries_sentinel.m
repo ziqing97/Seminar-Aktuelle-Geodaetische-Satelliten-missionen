@@ -45,15 +45,16 @@ subplot(3,1,3)
 hold on
 for j=1:length(data_list)
     id = data_list{j}.time>commossion_time(j);
-    plot(data_list{j}.time(id),data_list{j}.a(id)/1000-6371)
+    plot(data_list{j}.time(id),((data_list{j}.a(id)/1000-6371-796)*1000))
 end
 title([name,' height'])
 xlabel('Time')
-ylabel('height [km]')
+ylabel('h-796km [m]')
 set(gca,'FontSize',16)
 datetick('x')
 grid on
 xlim([xmin,xmax])
+ylim([0,1500])
 
 % AoP
 subplot(3,1,2)
