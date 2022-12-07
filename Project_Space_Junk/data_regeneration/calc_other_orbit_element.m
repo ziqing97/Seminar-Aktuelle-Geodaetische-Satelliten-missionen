@@ -4,6 +4,9 @@ function tle_data = calc_other_orbit_element(tle_data)
 
 % unix time to matlab datetime
 tle_data.time = datetime(tle_data.time,'convertfrom','epochtime');
+if tle_data.time>datetime(2023,1,1)
+    tle_data.time = tle_data.time-years(100);
+end
 % period
 tle_data.period = 86164.091./tle_data.mean_motion;
 % semi-major axis
