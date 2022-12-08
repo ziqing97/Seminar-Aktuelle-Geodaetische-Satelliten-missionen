@@ -8,7 +8,7 @@ folder_list = dir(main_data_path);
 
 %% read and save
 for i=1:length(folder_list)
-    if i<11
+    if i<4
         continue
     end
     folder = [folder_list(i).folder,'\',folder_list(i).name];
