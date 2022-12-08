@@ -28,7 +28,8 @@ end
 
 tle_data = load('E:\final_mat_files\dedu\dedup_tle2005.mat').tle_data;
 data_year = 2006;
-for data_month=1:12
+data_month = 5;
+
 all_data_month_mean = struct;
 for j=1:length(tle_data)
     data_month_mean = calc_mean_value(tle_data(j).data,data_year,data_month);
@@ -36,6 +37,4 @@ for j=1:length(tle_data)
     all_data_month_mean(j).data = data_month_mean;
 end
 
-save([num2str(data_year),'_',num2str(data_month),'.mat'],"all_data_month_mean")
-fprintf('month %d generated!\n',data_month)
-end
+save('')
