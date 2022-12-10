@@ -1,6 +1,6 @@
 %% Init
 clearvars;close all;clc;
-data_path = 'E:\final_mat_files\dedu'; % path to data
+data_path = 'E:\OneDrive\TLEs\final_mat_files\dedup'; % path to data
 addpath(data_path)
 file_list = dir(data_path);
 count = 0;
@@ -13,21 +13,16 @@ if file_list(i).isdir
 end
 count = count+1;
 % --------------- controll trigger--------------------
-if count ~= 10
+if count < 9
     continue
 end
 %-----------------------------------------------------
 
-%% read data
-%tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data;
-end
+% read data
+tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data;
+data_year = str2double(file_list(i).name(10:13));
 
-
-
-%%
-
-tle_data = load('E:\final_mat_files\dedu\dedup_tle2005.mat').tle_data;
-data_year = 2006;
+% split
 for data_month=1:12
 all_data_month_mean = struct;
 for j=1:length(tle_data)
@@ -36,6 +31,11 @@ for j=1:length(tle_data)
     all_data_month_mean(j).data = data_month_mean;
 end
 
-save([num2str(data_year),'_',num2str(data_month),'.mat'],"all_data_month_mean")
+% and save
+save([file_list(i).folder,num2str(data_year),'_',num2str(data_month),'.mat'],"all_data_month_mean")
 fprintf('month %d generated!\n',data_month)
 end
+end
+
+
+
