@@ -1,13 +1,13 @@
 function data_month_mean = calc_mean_value(data,data_year,data_month)
 
 data = data(year(data.time) == data_year,:);
-header = ["inclination","eccentricity","AoP","mean_anomaly","mean_motion","period","a","b"];
+header = ["inclination","eccentricity","AoP","mean_anomaly","mean_motion","period","a","b","apo","per"];
 
 month_id = month(data.time) == data_month;
 
 data_split = data(month_id,:);
 if size(data_split,1)==0
-    meanOfMonth = ones(1,8)*nan;
+    meanOfMonth = ones(1,10)*nan;
 elseif size(data_split,1)==1
     meanOfMonth = data_split{:,header};
 else
