@@ -13,7 +13,9 @@ for i=1:length(folder_list)
     end
     folder = [folder_list(i).folder,'\',folder_list(i).name];
     fo_name = folder_list(i).name(1:end-4);
-    
+    if folder_list(i).name(1:3) ~= 'new'
+        continue
+    end
     file_list = dir(folder);
     tle_struct = struct;
     k = 1;
@@ -29,5 +31,5 @@ for i=1:length(folder_list)
     end
     end
     fprintf("all files are imported\n")
-    save(['E:\OneDrive\TLEs\final_mat_files\',fo_name,'.mat'],'tle_struct')
+    save(['E:\OneDrive\TLEs\final_mat_files\1-origin\',fo_name,'.mat'],'tle_struct')
 end

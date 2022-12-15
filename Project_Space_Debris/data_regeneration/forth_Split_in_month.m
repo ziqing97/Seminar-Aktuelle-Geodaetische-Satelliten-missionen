@@ -15,9 +15,9 @@ if file_list(i).isdir
 end
 count = count+1;
 % --------------- controll trigger--------------------
-if count < 9
-    continue
-end
+% if count < 9
+%     continue
+% end
 %-----------------------------------------------------
 
 % read data
@@ -33,7 +33,9 @@ else
 end
 data_year = str2double(file_list(i).name(loc));
 
-
+if data_year>2004
+    continue
+end
 
 % split
 for data_month=1:12
