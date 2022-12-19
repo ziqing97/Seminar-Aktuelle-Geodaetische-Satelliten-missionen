@@ -14,3 +14,9 @@ title('Space Objects Count in Low Earth Orbit')
 set(gca,'FontSize',24)
 set(gca,'yticklabel',get(gca,'ytick'));
 
+data_count = satellitestatistic{:,2};
+d_c = diff(data_count);
+figure
+plot(satellitestatistic{2:end,1},d_c)
+grid on
+xticks(1960:5:2025)
