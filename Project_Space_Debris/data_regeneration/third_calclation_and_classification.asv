@@ -6,28 +6,24 @@ file_list = dir(data_path);
 count = 0;
 
 %% Begin
-for i=1:length(file_list)
-%% necessary controll for iteration
-if file_list(i).isdir
-    continue
-end
-
-
-if str2double(file_list(i).name(10:13))>2004
-    continue
-end
-count = count+1;
-
-tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data;
-
 tle_data_leo = struct;
 count_leo = 1;
 tle_data_non_leo = struct;
 count_non_leo = 1;
 
+for i=1:length(file_list)
+%% necessary controll for iteration
+if file_list(i).isdir
+    continue
+end
+count = count+1;
+tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data;
+
+end
+
 for j=1:length(tle_data)
     data = tle_data(j).data;
-    name = tle_data(j).name;
+    name = tle_data(j).data;
     data.apo = data.a .* (1+data.eccentricity);
     data.per = data.a .* (1-data.eccentricity);
     if (data.eccentricity(1) < 0.25) && (data.period(1) < 128*60)
@@ -39,11 +35,9 @@ for j=1:length(tle_data)
         tle_data_non_leo(count_non_leo).data = data;
         count_non_leo = count_non_leo + 1;
     end
-end
 save(['E:\OneDrive\TLEs\final_mat_files\3-leo\leo_',file_list(i).name(10:end)],'tle_data_leo');
-save(['E:\OneDrive\TLEs\final_mat_files\3-non_leo\non_leo_',file_list(i).name(10:end)],'tle_data_non_leo');
+save(['E:\OneDrive\TLEs\final_mat_files\3-non_leo\leo_',file_list(i).name(10:end)],'tle_data_non_leo');
 end
-
 
 
 
