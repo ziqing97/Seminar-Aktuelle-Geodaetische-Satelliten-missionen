@@ -9,9 +9,8 @@ GM = 3.9865005e14;
 
 lla = ecef2lla([y(1),y(2),y(3)]);
 t0 = datenum(2023,1,1,0,0,0);
-t
 t = t0 + t/3600/24;
-yyyy = year(t0);
+yyyy = year(datetime(t,'ConvertFrom','datenum'));
 doy = floor(t - datenum(yyyy,1,1,0,0,0));
 utsecond = (t - datenum(yyyy,1,1,0,0,0) - doy)*24*3600;
 
