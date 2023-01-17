@@ -4,8 +4,10 @@ function dydt =odefun_harrispierce(t, y, AdM, dc)
 % Ziqing Yu 3218051
 
 GM = 3.9865005e14;
-h_GOCE = 450 * 1000; % m
-f1_GOCE = drag_force_hp(dc,h_GOCE,[y(4);y(5);y(6)],AdM);
+
+lla = ecef2lla([y(1),y(2),y(3)]);
+h = lla(3);
+f1_GOCE = drag_force_hp(dc,h,[y(4);y(5);y(6)],AdM);
 dydt=[y(4); 
       y(5);
       y(6);

@@ -102,8 +102,28 @@ end
 
 
 figure
-plot(T1,a_Gk1)
+plot(T1/3600,(a_Gk1-6378137)/1000)
+title('no air drag')
+xlabel('time [hour]')
+ylabel('height [km]')
+pbaspect([3,1,1])
+set(gca,'FontSize',32)
+set(gca,'yticklabel',get(gca,'ytick'));
+
 figure
-plot(T2,a_Gk2)
+plot(T2/3600,(a_Gk2-6378137)/1000)
+title('harris priest model')
+xlabel('time [hour]')
+ylabel('height [km]')
+pbaspect([3,1,1])
+set(gca,'FontSize',32)
+set(gca,'yticklabel',get(gca,'ytick'));
+
 figure
-plot(T3,a_Gk3)
+plot(T3/3600,(a_Gk3-6378137)/1000)
+title('msis model')
+xlabel('time [hour]')
+ylabel('height [km]')
+pbaspect([3,1,1])
+set(gca,'FontSize',32)
+set(gca,'yticklabel',get(gca,'ytick'));
