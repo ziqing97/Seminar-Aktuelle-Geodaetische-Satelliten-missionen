@@ -19,16 +19,42 @@ M = deg2rad(5);         % radiant
 GM = 3.9865005e14;   % m^3/s^2
 T = sqrt((a^3 * 4* pi) / (GM)); % s
 
-
 %%
 starttime = datetime(2022,12,1,0,0,0,'TimeZone','UTC');
-tspan = 0:30*24*3600; % integral time
+tspan = 0:24*3600:30*24*3600; % integral time
 
-[result_noforce,result_harris_priester,result_msis] = ...
-orbit_integral(a,e,I,Omega,w,M,AdM,starttime,tspan);
-
-%%
-save('result_noforce.mat','result_noforce')
-save('result_hp.mat','result_harris_priester')
-save('result_msis.mat','result_msis')
+for i=1:length(tspan)-1
+    tspan_split=[tspan(i),tspan(i+1)];
+    t0 = starttime+tspan(i)/3600/24;
+    if i==1
+        result_noforce = orbit_integral(a,e,I,Omega,...
+            w,M,AdM,t0,tspan_split,"noforce");
+        result_harris_priester = orbit_integral(a,e,I,Omega,...
+            w,M,AdM,t0,tspan_split,"hp");
+    else
+        % noforce
+        a = result_noforce(end,2);              % meter
+        e = result_noforce(end,3);      % radiant
+        I = result_noforce(end,4);
+        Omega = result_noforce(end,5);   % radiant
+        w = result_noforce(end,6);       % radiant
+        M = result_noforce(end,7);       % radiant
+        result_noforce = orbit_integral(a,e,I,Omega,...
+            w,M,AdM,t0,tspan_split,"noforce");
+        % harris-priester model
+        a = result_harris_priester(end,2);      % meter
+        e = result_harris_priester(end,3);      % radiant
+        I = result_harris_priester(end,4);
+        Omega = result_harris_priester(end,5);   % radiant
+        w = result_harris_priester(end,6);       % radiant
+        M = result_harris_priester(end,7);       % radiant
+        result_harris_priester = orbit_integral(a,e,I,Omega,...
+            w,M,AdM,t0,tspan_split,"hp");
+    end
+    name1 = ['orbit_data/result_noforce_',num2str(i),'.mat'];
+    name2 = ['orbit_data/result_hp_',num2str(i),'.mat'];
+    save(name1,'result_noforce')
+    save(name2,'result_harris_priester')
+    fprintf("%d day done",i)
+end
 
