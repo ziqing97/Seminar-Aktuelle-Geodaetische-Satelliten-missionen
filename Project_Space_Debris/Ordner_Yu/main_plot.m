@@ -58,16 +58,41 @@ hold on
 plot(t_noforce_sorted(t_noforce_sorted<24*3600)/3600,(a_noforce_sorted(t_noforce_sorted<24*3600)-6378137)/1000)
 plot(t_hp_sorted(t_hp_sorted<24*3600)/3600,(a_hp_sorted(t_hp_sorted<24*3600)-6378137)/1000)
 plot(t_msis_sorted/3600,(a_msis_sorted-6378137)/1000)
-set(gca,'FontSize',20)
+set(gca,'FontSize',14)
 xlabel("time (hour)")
 ylabel("a - R (km)")
+legend({'no air force','with harris-priester model','with msis00 model'})
 
 subplot(2,1,2)
 hold on
 plot(t_noforce_sorted(t_noforce_sorted<24*3600)/3600,e_noforce_sorted(t_noforce_sorted<24*3600))
 plot(t_hp_sorted(t_hp_sorted<24*3600)/3600,e_hp_sorted(t_hp_sorted<24*3600))
 plot(t_msis_sorted/3600,e_msis_sorted)
-set(gca,'FontSize',20)
+set(gca,'FontSize',14)
 xlabel("time (hour)")
 ylabel("e")
-suptitle("sphere 4.84 m^2, 1250 kg")
+legend({'no air force','with harris-priester model','with msis00 model'})
+sgtitle("sphere 4.84 m^2, 1250 kg, T=0.95 hour")
+
+
+
+%%
+figure
+subplot(2,1,1)
+hold on
+plot(t_noforce_sorted/3600/24,(a_noforce_sorted-6378137)/1000)
+plot(t_hp_sorted/3600/24,(a_hp_sorted-6378137)/1000)
+set(gca,'FontSize',14)
+xlabel("time (hour)")
+ylabel("a - R (km)")
+legend({'no air force','with harris-priester model','with msis00 model'})
+
+subplot(2,1,2)
+hold on
+plot(t_noforce_sorted/3600/24,e_noforce_sorted)
+plot(t_hp_sorted/3600/24,e_hp_sorted)
+set(gca,'FontSize',14)
+xlabel("time (hour)")
+ylabel("e")
+legend({'no air force','with harris-priester model','with msis00 model'})
+sgtitle("sphere 4.84 m^2, 1250 kg, T=0.95 hour")
