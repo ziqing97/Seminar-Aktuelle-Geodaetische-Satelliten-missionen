@@ -3,11 +3,9 @@ function[result] = orbit_integral(a,e,I,Omega,w,M,AdM,t0,tspan,trigger)
 %% Some settings
 options = odeset('RelTol',1e-15,'AbsTol',1e-15);
 warning('off')
-% Constant
-GM = 3.9865005e14;   % m^3/s^2
 
 % transformation from kepler elements to ECI
-[ri,vi] = kep2eci(I,Omega,w,M,e,a,GM);  % meter for r and m/s for v
+[ri,vi] = kep2eci(I,Omega,w,M,e,a);  % meter for r and m/s for v
 koori = [ri;vi];
 
 %% orbit intergral

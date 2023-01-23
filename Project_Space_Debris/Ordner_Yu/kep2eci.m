@@ -1,5 +1,5 @@
-function [ri,vi] = kep2eci(I,Omega,w,Mt,e,a,GM)
-
+function [ri,vi] = kep2eci(I,Omega,w,Mt,e,a)
+GM = 3.9865005e14;   % m^3/s^2
 E0 = Mt;
 Ek = Mt + e * sin(E0);
 while abs(E0 - Ek) > 1e-12
