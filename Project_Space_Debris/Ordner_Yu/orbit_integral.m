@@ -15,7 +15,7 @@ noforce = 1;
 hp = 1;
 msis = 0;
 
-%% intergral and add earth rotation
+%% orbit intergral
 if noforce == 1
     % Kepler Elemente no atmospheric force
     [T1, Y1] = ode113(@(t,y)odefun_noforce(t,y), tspan, koori, options);
