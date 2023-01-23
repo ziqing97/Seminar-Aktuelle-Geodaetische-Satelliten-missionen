@@ -9,14 +9,14 @@ area = 2.2^2;              % m^2
 AdM = area/mass;
 
 % To Kepler Elements
-a = R + h;              % meter
-I = deg2rad(98.622);      % radiant
+a = R + h;                   % meter
+I = deg2rad(98.622);         % radiant
 e = 0.0002125;
 Omega = deg2rad(335);   % radiant
 w = deg2rad(273);       % radiant
 M = deg2rad(5);         % radiant
 
-GM = 3.9865005e14;   % m^3/s^2
+GM = 3.9865005e14;              % m^3/s^2
 T = sqrt((a^3 * 4* pi) / (GM)); % s
 
 %%
