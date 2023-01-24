@@ -1,6 +1,6 @@
 %%
 clc;close all;clearvars
-files = dir('orbit_data');
+files = dir('orbit_data_2');
 
 %%
 starttime = datetime(2022,12,1,0,0,0,'TimeZone','UTC');
@@ -116,12 +116,12 @@ M_msis_sorted = M_msis(index);
 figure
 subplot(2,1,1)
 hold on
-plot(t_noforce_sorted/3600/24,a_noforce_sorted/1000)
-plot(t_hp_sorted/3600/24,a_hp_sorted/1000)
-plot(t_msis_sorted/3600/24,a_msis_sorted/1000)
+plot(t_noforce_sorted/3600/24,(a_noforce_sorted-6378137)/1000)
+plot(t_hp_sorted/3600/24,(a_hp_sorted-6378137)/1000)
+plot(t_msis_sorted/3600/24,(a_msis_sorted-6378137)/1000)
 set(gca,'FontSize',14)
 xlabel("time (day)")
-ylabel("a (km)")
+ylabel("a-6378 (km)")
 % legend({'no air force','with harris-priester model','with msis00 model'})
 
 subplot(2,1,2)
@@ -134,7 +134,7 @@ xlabel("time (day)")
 ylabel("e")
 % legend({'no air force','with harris-priester model','with msis00 model'})
 tsz=sgtitle("sphere 4.84 m^2, 1250 kg, T=0.95 hour, cd=1");
-tsz=sgtitle("25 m^2, 140 kg, cd=2.5, Using Harris-Priester");
+% tsz=sgtitle("25 m^2, 140 kg, cd=2.5, Using Harris-Priester");
 tsz.FontSize=28;
 
 
