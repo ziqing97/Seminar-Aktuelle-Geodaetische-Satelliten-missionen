@@ -22,7 +22,7 @@ lla = ecef2lla([re(1),re(2),re(3)]);
 [~, rho] = atmosnrlmsise00(lla(3),lla(2),lla(1),yyyy,doy,utsecond);
 rho_atm = rho(6);
 
-C_d = 1;
+C_d = 2.5;
 f_atm = -1/2 * C_d * rho_atm * AdM * vi * norm(vi); % m/s^2
 
 dydt=[vi(1); 

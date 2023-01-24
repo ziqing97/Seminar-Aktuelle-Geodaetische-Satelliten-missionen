@@ -19,9 +19,18 @@ M = deg2rad(5);         % radiant
 GM = 3.9865005e14;              % m^3/s^2
 T = sqrt((a^3 * 4* pi) / (GM)); % s
 
+mass = 140;
+area = 25;
+AdM = area/mass;
+I = 0;
+e = 0;
+a = 6378137+450e3;
+
 %%
 starttime = datetime(2022,12,1,0,0,0,'TimeZone','UTC');
 tspan = 0:24*3600:24*3600*365*2; % integral time
+
+tspan = 0:24*3600:16*24*3600;
 
 for i=1:length(tspan)-1
     tspan_split=[tspan(i),tspan(i+1)];

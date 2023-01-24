@@ -64,8 +64,6 @@ dc = [100	497400	497400
 dc(:,1) = dc(:,1) * 1000; % km to m
 dc(:,2:3) = dc(:,2:3) / 1000^4; % g/km^3 to kg/m^3
 
-cd = 1; % no unit
-
 % find the precise altitude intervall
 idx = find(h>dc(:,1));
 if (h>1000000)
@@ -94,5 +92,6 @@ end
 rho_atm = (rho_min + rho_max) / 2;
 
 % atmospheric drag
+cd = 2.5;
 f_atm = -1/2 * cd * rho_atm * AdM * v_sate * norm(v_sate); % m/s^2
 end

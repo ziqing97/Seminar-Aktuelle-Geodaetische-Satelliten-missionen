@@ -1,6 +1,6 @@
 %%
 clc;close all;clearvars
-files = dir('orbit_data_1');
+files = dir('orbit_data');
 
 %%
 starttime = datetime(2022,12,1,0,0,0,'TimeZone','UTC');
@@ -88,29 +88,29 @@ w_msis_sorted = w_msis(index);
 M_msis_sorted = M_msis(index);
 
 %%
-lla_noforce = zeros(length(t_noforce_sorted),3);
-for i=1:length(t_noforce_sorted)
-t_matlab = starttime + t_noforce_sorted(i)/3600/24;
-lla_noforce(i,:) = kep2lla(a_noforce_sorted(i),e_noforce_sorted(i), ...
-    I_noforce_sorted(i),Omega_noforce_sorted(i),w_noforce_sorted(i), ...
-    M_noforce_sorted(i),t_matlab);
-end
-
-lla_hp_sorted = zeros(length(t_hp_sorted),3);
-for i=1:length(t_hp_sorted)
-t_matlab = starttime + t_hp_sorted(i)/3600/24;
-lla_hp_sorted(i,:) = kep2lla(a_hp_sorted(i),e_hp_sorted(i), ...
-    I_hp_sorted(i),Omega_hp_sorted(i),w_hp_sorted(i), ...
-    M_hp_sorted(i),t_matlab);
-end
-
-lla_msis_sorted = zeros(length(t_msis_sorted),3);
-for i=1:length(t_msis_sorted)
-t_matlab = starttime + t_msis_sorted(i)/3600/24;
-lla_msis_sorted(i,:) = kep2lla(a_msis_sorted(i),e_msis_sorted(i), ...
-    I_msis_sorted(i),Omega_msis_sorted(i),w_msis_sorted(i), ...
-    M_msis_sorted(i),t_matlab);
-end
+% lla_noforce = zeros(length(t_noforce_sorted),3);
+% for i=1:length(t_noforce_sorted)
+% t_matlab = starttime + t_noforce_sorted(i)/3600/24;
+% lla_noforce(i,:) = kep2lla(a_noforce_sorted(i),e_noforce_sorted(i), ...
+%     I_noforce_sorted(i),Omega_noforce_sorted(i),w_noforce_sorted(i), ...
+%     M_noforce_sorted(i),t_matlab);
+% end
+% 
+% lla_hp_sorted = zeros(length(t_hp_sorted),3);
+% for i=1:length(t_hp_sorted)
+% t_matlab = starttime + t_hp_sorted(i)/3600/24;
+% lla_hp_sorted(i,:) = kep2lla(a_hp_sorted(i),e_hp_sorted(i), ...
+%     I_hp_sorted(i),Omega_hp_sorted(i),w_hp_sorted(i), ...
+%     M_hp_sorted(i),t_matlab);
+% end
+% 
+% lla_msis_sorted = zeros(length(t_msis_sorted),3);
+% for i=1:length(t_msis_sorted)
+% t_matlab = starttime + t_msis_sorted(i)/3600/24;
+% lla_msis_sorted(i,:) = kep2lla(a_msis_sorted(i),e_msis_sorted(i), ...
+%     I_msis_sorted(i),Omega_msis_sorted(i),w_msis_sorted(i), ...
+%     M_msis_sorted(i),t_matlab);
+% end
 
 %% 
 figure
@@ -122,7 +122,7 @@ plot(t_msis_sorted/3600/24,a_msis_sorted/1000)
 set(gca,'FontSize',14)
 xlabel("time (day)")
 ylabel("a (km)")
-legend({'no air force','with harris-priester model','with msis00 model'})
+% legend({'no air force','with harris-priester model','with msis00 model'})
 
 subplot(2,1,2)
 hold on
@@ -132,8 +132,9 @@ plot(t_msis_sorted/3600/24,e_msis_sorted)
 set(gca,'FontSize',14)
 xlabel("time (day)")
 ylabel("e")
-legend({'no air force','with harris-priester model','with msis00 model'})
+% legend({'no air force','with harris-priester model','with msis00 model'})
 tsz=sgtitle("sphere 4.84 m^2, 1250 kg, T=0.95 hour, cd=1");
-tsz.FontSize=20;
+tsz=sgtitle("25 m^2, 140 kg, cd=2.5, Using Harris-Priester");
+tsz.FontSize=28;
 
 
