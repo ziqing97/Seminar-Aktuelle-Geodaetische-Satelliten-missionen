@@ -1,5 +1,7 @@
 clc;close all;clearvars
 
+warning('off')
+
 %% h from 300 to 1000 0,0
 h_array = (300:10:1000)';
 h_array = h_array * 1000;
