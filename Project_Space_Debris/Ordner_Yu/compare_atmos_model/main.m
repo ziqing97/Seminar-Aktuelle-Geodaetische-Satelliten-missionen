@@ -104,7 +104,7 @@ rho_mat = nan(a,b);
 
 for i=1:length(lat)
     for j=1:length(lon)
-        [~,temp] = atmosnrlmsise00(400,lat(i),lon(j),2023,1,0);
+        [~,temp] = atmosnrlmsise00(400000,lat(i),lon(j),2023,1,0);
         rho_mat(j,i) = temp(6);
     end
 end

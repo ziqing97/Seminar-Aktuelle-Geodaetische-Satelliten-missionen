@@ -17,9 +17,11 @@ SS = second(t_matlab);
 utc_time = [yyyy,mm,dd,HH,MM,SS];
 
 %
-re = eci2ecef(utc_time,ri);
-lla = ecef2lla([re(1),re(2),re(3)]);
-h = lla(3);
+% re = eci2ecef(utc_time,ri);
+re = ri;
+% lla = ecef2lla([re(1),re(2),re(3)]);
+% h = lla(3);
+h = norm(ri)-6378137;
 f1_hp = drag_force_hp(h,vi,AdM);
 dydt=[vi(1); 
       vi(2);
