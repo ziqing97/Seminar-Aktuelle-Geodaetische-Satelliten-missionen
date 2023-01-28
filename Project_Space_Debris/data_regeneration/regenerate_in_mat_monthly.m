@@ -1,6 +1,6 @@
 %% Init
 clearvars;close all;clc;
-data_path = 'E:\OneDrive\TLEs\final_mat_files\3-leo'; % path to data
+data_path = 'F:\TLE\RESULT\MAT_Year\LEO'; % path to data
 addpath(data_path)
 file_list = dir(data_path);
 count = 0;
@@ -23,19 +23,15 @@ count = count+1;
 % read data
 if type == "leo"
     tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data_leo;
-    loc = 5:8;
+    loc = 4:7;
 elseif type == "non_leo"
     tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data_non_leo;
-    loc = 9:12;
+    loc = 7:10;
 else
     tle_data = load([file_list(i).folder,'\',file_list(i).name]).tle_data_non_leo;
     loc = 10:13;
 end
 data_year = str2double(file_list(i).name(loc));
-
-if data_year>2004
-    continue
-end
 
 % split
 for data_month=1:12
@@ -47,7 +43,7 @@ for j=1:length(tle_data)
 end
 
 % and save
-save(['E:\OneDrive\TLEs\final_mat_files\3-leo\monthly\leo_',num2str(data_year),'_',num2str(data_month),'.mat'],"all_data_month_mean")
+save(['F:\TLE\RESULT\MAT_Month\LEO\leo',num2str(data_year),'_',num2str(data_month),'.mat'],"all_data_month_mean")
 fprintf('month %d generated!\n',data_month)
 end
 end
