@@ -24,14 +24,14 @@ ylabel('\rho [kg/m^3]')
 xlabel('h [km]')
 legend('harris-priester','msis00')
 title('density of two model at latitude 0, longitude 0')
-set(gca,'FontSize',14)
+set(gca,'FontSize',24)
 
 subplot(2,1,2)
 plot(h_array/1000,rho_hp-rho_msis)
 ylabel('\rho [kg/m^3]')
 xlabel('h [km]')
 title('density difference between two model at latitude 0, longitude 0')
-set(gca,'FontSize',14)
+set(gca,'FontSize',24)
 
 %% h from 300 to 1000
 h_array = (300:10:1000)';
@@ -54,15 +54,15 @@ plot(h_array/1000,rho_msis)
 ylabel('\rho [kg/m^3]')
 xlabel('h [km]')
 legend('harris-priester','msis00')
-title('density of two model at nord pol')
-set(gca,'FontSize',14)
+title('density of two model at Arctic point')
+set(gca,'FontSize',24)
 
 subplot(2,1,2)
 plot(h_array/1000,rho_hp-rho_msis)
 ylabel('\rho [kg/m^3]')
 xlabel('h [km]')
-title('density difference between two model at nord pol')
-set(gca,'FontSize',14)
+title('density difference between two model at Arctic point')
+set(gca,'FontSize',24)
 
 %% h from 800 to 1000
 h_array = (800:10:1000)';
@@ -85,15 +85,15 @@ plot(h_array/1000,rho_msis)
 ylabel('\rho [kg/m^3]')
 xlabel('h [km]')
 legend('harris-priester','msis00')
-title('density of two model at nord pol')
+title('density of two model at Arctic point')
 set(gca,'FontSize',14)
 
 subplot(2,1,2)
 plot(h_array/1000,rho_hp-rho_msis)
 ylabel('\rho [kg/m^3]')
 xlabel('h [km]')
-title('density difference between two model at nord pol')
-set(gca,'FontSize',14)
+title('density difference between two model at Arctic point')
+set(gca,'FontSize',24)
 
 %% check the difference at different location of msis00 at 400 km
 lat = -90:90;
@@ -120,4 +120,4 @@ ylabel('latitude')
 title('Atmosphere density on height 400 km using msis00 model')
 c = colorbar;
 c.Label.String = '[\rho kg/m^3]';
-set(gca,'FontSize',14)
+set(gca,'FontSize',24)
