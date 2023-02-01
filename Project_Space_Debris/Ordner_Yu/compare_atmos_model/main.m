@@ -86,7 +86,7 @@ xticklabels(-180:45:180)
 yticklabels(90:-45:-90)
 xlabel('longitude')
 ylabel('latitude')
-title('Atmosphere density on height 400 km using msis00 model')
+title('Atmosphere density on height 400 km using msis00 model UTC 0:00')
 c = colorbar;
 c.Label.String = '[\rho g/km^3]';
 set(gca,'FontSize',24)
@@ -114,7 +114,7 @@ xticklabels(-180:45:180)
 yticklabels(90:-45:-90)
 xlabel('longitude')
 ylabel('latitude')
-title('Atmosphere density on height 400 km using msis00 model')
+title('Atmosphere density on height 400 km using msis00 model UTC 12:00')
 c = colorbar;
 c.Label.String = '[\rho g/km^3]';
 set(gca,'FontSize',24)
