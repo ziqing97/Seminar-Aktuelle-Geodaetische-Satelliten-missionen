@@ -1,4 +1,4 @@
-%%
+%% generate trend of one integration
 clc;close all;clearvars
 files = dir('C:\orbit_e005_middle');
 countlist = zeros(length(files)-2,1);
