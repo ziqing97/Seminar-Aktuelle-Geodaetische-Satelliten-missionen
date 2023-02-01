@@ -9,7 +9,7 @@ ylabel('objects counting')
 grid on
 xticks(1955:5:2025)
 xlim([1955,2023])
-title('Space Objects Count in Low Earth Orbit')
+title('Space Objects Count')
 set(gca,'yticklabel',get(gca,'ytick'));
 set(gca,'FontSize',24)
 pbaspect([3,1,1])
