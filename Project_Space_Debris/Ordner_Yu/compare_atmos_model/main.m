@@ -3,6 +3,9 @@ clc;close all;clearvars
 warning('off')
 
 %% h from 300 to 1000 0,0
+expo = -3:1:2;
+tick = 10.^expo;
+
 h_array = (300:10:1000)';
 h_array = h_array * 1000;
 
@@ -25,6 +28,8 @@ xlabel('h [km]')
 legend('harris-priester','msis00')
 title('density of two model at latitude 0, longitude 0')
 set(gca,'FontSize',24)
+set(gca, 'YScale', 'log')
+set(gca,'YTick',tick)
 
 subplot(2,1,2)
 plot(h_array/1000,(rho_hp-rho_msis)*1e12)
@@ -32,6 +37,8 @@ ylabel('\rho [g/km^3]')
 xlabel('h [km]')
 title('density difference between two model at latitude 0, longitude 0')
 set(gca,'FontSize',24)
+set(gca, 'YScale', 'log')
+set(gca,'YTick',tick)
 
 %% h from 300 to 1000
 h_array = (300:10:1000)';
@@ -44,7 +51,8 @@ for i=1:length(h_array)
     rho_hp(i) = density_hp(h_array(i));
     [~, rho] = atmosnrlmsise00(h_array(i),90,0,2023,1,0);
     rho_msis(i) = rho(6);
-end 
+end
+
 
 figure
 subplot(2,1,1)
@@ -55,14 +63,21 @@ ylabel('\rho [g/km^3]')
 xlabel('h [km]')
 legend('harris-priester','msis00')
 title('density of two model at Arctic point')
+set(gca,'YTick',tick)
 set(gca,'FontSize',24)
+set(gca, 'YScale', 'log')
+ylim([0.004,100])
 
 subplot(2,1,2)
 plot(h_array/1000,(rho_hp-rho_msis)*1e12)
 ylabel('\rho [g/km^3]')
 xlabel('h [km]')
 title('density difference between two model at Arctic point')
+set(gca,'YTick',tick)
 set(gca,'FontSize',24)
+set(gca, 'YScale', 'log')
+ylim([0.004,100])
+
 
 %% check the difference at different location of msis00 at 400 km
 lat = -90:90;
