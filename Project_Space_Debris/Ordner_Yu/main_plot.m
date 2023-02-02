@@ -1,6 +1,6 @@
 %% generate trend of one integration
 clc;close all;clearvars
-files = dir('E:\orbit\old_results\orbit_e005_middle');
+files = dir('E:\orbit\old_results\orbit_e0_middle');
 countlist = zeros(length(files)-2,1);
 for i=1:length(files)
     if files(i).isdir

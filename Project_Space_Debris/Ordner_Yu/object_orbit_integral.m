@@ -9,7 +9,7 @@ M = deg2rad(5);         % radiant
 %%
 starttime = datetime(2023,1,1,0,0,0,'TimeZone','UTC');
 tspan = 0:24*3600:24*3600*365*40; % integral time
-folder = ['C:/orbit/orbit_e_',num2str(e),'_AdM_',num2str(AdM)];
+folder = ['E:/orbit/orbit_e_',num2str(e),'_AdM_',num2str(AdM)];
 if ~exist(folder,'dir')
     mkdir(folder)
 end
