@@ -52,21 +52,21 @@ To ecef
 \\
 Frage: ist folgende Gleichung gültig in ecef?
 \begin{equation}\label{eq1}
-	d \left(\begin{matrix}
-		\bm{r_e} \\
-		\bm{\dot{r}_e}
+	\frac{d}{dt} \left(\begin{matrix}
+		\bm{r} \\
+		\bm{\dot{r}}
 	\end{matrix}\right) = \left(\begin{matrix}
-	\bm{\dot{r}_e} \\
-	-\frac{GM}{r^3} \cdot \bm{r_e}
+	\bm{\dot{r}} \\
+	-\frac{GM}{r^3} \cdot \bm{r}
 \end{matrix}\right) + \left(\begin{matrix}
 \bm{0} \\
-\bm{f_e}
+\frac{\bm{f}}{m}
 \end{matrix}\right)
 \end{equation}
 \\
 Da $\bm{r_e}$ vorhanden ist, kann man Länge, Breite und Höhe berechnen, mit den kriegt man die Atmosphäre Dichte $\rho$. Dann kann man aus $\rho$ und $\bm{\dot{r}_e}$ die Atmosphärische Widerstand $\bm{f_e}$ berechnen mit \autoref{eq2} Formen(Angenommen, die Geschwindigkeit von Atmosphäre ist 0):
 \begin{equation}\label{eq2}
-	\bm{f_e} = -\frac{1}{2} \cdot C_d \cdot \rho \cdot \frac{A}{m} \cdot \bm{\dot{r}_e} \cdot |\bm{\dot{r}_e}|
+	\frac{\bm{f}_{atm}}{m} = -\frac{1}{2} \cdot C_d \cdot \rho \cdot \frac{A}{m} \cdot \left(\bm{\dot{r}} - \bm{\dot{r}_a}\right) \cdot |\bm{\dot{r}} - \bm{\dot{r}_a}|
 \end{equation}
 \\
 Wenn \autoref{eq1} gültig ist, kann man die Koordinaten in ecef mit Runge-Kutta (ode45 Funktion in matlab) integrieren. Am Ende transformiert man die Koordinaten zurück in Kepler Element.
