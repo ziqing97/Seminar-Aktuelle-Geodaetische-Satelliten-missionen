@@ -70,7 +70,8 @@ end
 
 figure
 imagesc(time_mat)
-colorbar
+c = colorbar;
+c.Label.String = 'Time [day]';
 xticklabels(AdM_array)
 yticklabels(e_array)
 xlabel('area mass ratio [m^2/kg]')
