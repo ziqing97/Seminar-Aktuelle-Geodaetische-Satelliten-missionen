@@ -3,4 +3,6 @@
 *\.aux
 *\.log
 *\.out
+*\.bbl
+*\.blg
 *\synctex.gz
