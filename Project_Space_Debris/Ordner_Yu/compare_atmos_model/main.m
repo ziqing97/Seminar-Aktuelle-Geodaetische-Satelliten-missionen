@@ -28,8 +28,8 @@ xlabel('h [km]')
 legend('harris-priester','msis00')
 title('density of two model at latitude 0, longitude 0')
 set(gca,'FontSize',24)
-set(gca, 'YScale', 'log')
-set(gca,'YTick',tick)
+% set(gca, 'YScale', 'log')
+% set(gca,'YTick',tick)
 
 subplot(2,1,2)
 plot(h_array/1000,(rho_hp-rho_msis)*1e12)
@@ -63,10 +63,10 @@ ylabel('\rho [g/km^3]')
 xlabel('h [km]')
 legend('harris-priester','msis00')
 title('density of two model at Arctic point')
-set(gca,'YTick',tick)
+% set(gca,'YTick',tick)
 set(gca,'FontSize',24)
-set(gca, 'YScale', 'log')
-ylim([0.004,100])
+% set(gca, 'YScale', 'log')
+% ylim([0.004,100])
 
 subplot(2,1,2)
 plot(h_array/1000,(rho_hp-rho_msis)*1e12)
@@ -79,57 +79,57 @@ set(gca, 'YScale', 'log')
 ylim([0.004,100])
 
 
-%% check the difference at different location of msis00 at 400 km
-lat = -90:90;
-lon = -180:180;
-[LAT, LON] = meshgrid(lat,lon);
-[a,b] = size(LAT);
-rho_mat = nan(a,b);
-
-for i=1:length(lat)
-    for j=1:length(lon)
-        [~,temp] = atmosnrlmsise00(400000,lat(i),lon(j),2023,1,0);
-        rho_mat(j,i) = temp(6);
-    end
-end
-
-figure
-imagesc(rho_mat'*1e12)
-xticks(1:45:361)
-yticks(1:45:181)
-xticklabels(-180:45:180)
-yticklabels(90:-45:-90)
-xlabel('longitude')
-ylabel('latitude')
-title('Atmosphere density on height 400 km using msis00 model UTC 0:00')
-c = colorbar;
-c.Label.String = '[\rho g/km^3]';
-set(gca,'FontSize',24)
-
-
-%% check the difference at different location of msis00 at 400 km
-lat = -90:90;
-lon = -180:180;
-[LAT, LON] = meshgrid(lat,lon);
-[a,b] = size(LAT);
-rho_mat = nan(a,b);
-
-for i=1:length(lat)
-    for j=1:length(lon)
-        [~,temp] = atmosnrlmsise00(400000,lat(i),lon(j),2023,1,3600*12);
-        rho_mat(j,i) = temp(6);
-    end
-end
-
-figure
-imagesc(rho_mat'*1e12)
-xticks(1:45:361)
-yticks(1:45:181)
-xticklabels(-180:45:180)
-yticklabels(90:-45:-90)
-xlabel('longitude')
-ylabel('latitude')
-title('Atmosphere density on height 400 km using msis00 model UTC 12:00')
-c = colorbar;
-c.Label.String = '[\rho g/km^3]';
-set(gca,'FontSize',24)
+% %% check the difference at different location of msis00 at 400 km
+% lat = -90:90;
+% lon = -180:180;
+% [LAT, LON] = meshgrid(lat,lon);
+% [a,b] = size(LAT);
+% rho_mat = nan(a,b);
+% 
+% for i=1:length(lat)
+%     for j=1:length(lon)
+%         [~,temp] = atmosnrlmsise00(400000,lat(i),lon(j),2023,1,0);
+%         rho_mat(j,i) = temp(6);
+%     end
+% end
+% 
+% figure
+% imagesc(rho_mat'*1e12)
+% xticks(1:45:361)
+% yticks(1:45:181)
+% xticklabels(-180:45:180)
+% yticklabels(90:-45:-90)
+% xlabel('longitude')
+% ylabel('latitude')
+% title('Atmosphere density on height 400 km using msis00 model UTC 0:00')
+% c = colorbar;
+% c.Label.String = '[\rho g/km^3]';
+% set(gca,'FontSize',24)
+% 
+% 
+% %% check the difference at different location of msis00 at 400 km
+% lat = -90:90;
+% lon = -180:180;
+% [LAT, LON] = meshgrid(lat,lon);
+% [a,b] = size(LAT);
+% rho_mat = nan(a,b);
+% 
+% for i=1:length(lat)
+%     for j=1:length(lon)
+%         [~,temp] = atmosnrlmsise00(400000,lat(i),lon(j),2023,1,3600*12);
+%         rho_mat(j,i) = temp(6);
+%     end
+% end
+% 
+% figure
+% imagesc(rho_mat'*1e12)
+% xticks(1:45:361)
+% yticks(1:45:181)
+% xticklabels(-180:45:180)
+% yticklabels(90:-45:-90)
+% xlabel('longitude')
+% ylabel('latitude')
+% title('Atmosphere density on height 400 km using msis00 model UTC 12:00')
+% c = colorbar;
+% c.Label.String = '[\rho g/km^3]';
+% set(gca,'FontSize',24)
