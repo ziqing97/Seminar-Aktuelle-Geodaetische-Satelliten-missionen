@@ -39,12 +39,14 @@ Das bedeutet, bevor wir die Bahnintegration implementieren, müssen wir zunächs
 \subsection{Atmosphärische Eigenschaft im Raum}
 2 Atmosphäre Modelle sind untersucht nämlich Harris-Priester Modell \cite{harris1963relation} und MSIS-E-00\cite{picone2002nrlmsise}. Bei Harris-Priester Model ist die Atmosphärische Dicht nur von Höhe abhängen und MSIS-E-00 ist ein viel präziseres Modell, bei dem geographische Ort, Höhe und auch Zeit eine Rolle spielen.
 \\\\
-Bei MSIS-E-00 Model ist die Atmosphärische Dichte von mehre Parametern abhängen, bspw. ellipsoidische Höhe, Länge, Breite und Zeit.
-\begin{figure}[ht]\centering \label{fig:msise00_400km}
+Bei MSIS-E-00 Model ist die Atmosphärische Dichte von mehre Parametern abhängen, bspw.  ellipsoidische Höhe, Länge, Breite und Zeit. In \autoref{fig:msise00_400km} sind die atmosphärische Dichte \SI{400}{\kilo \meter}
+\begin{figure}[ht]\centering 
 	\subfigure[]{
 		\includegraphics[width=0.9\textwidth]{images/msis_day.png}}
 	\subfigure[]{
 		\includegraphics[width=0.9\textwidth]{images/msis_night.png}}
+	\caption{Atmosphärische Dichte \SI{400}{\kilo \meter} über die Erde um 0:00 und 12:00 UTC}
+	\label{fig:msise00_400km}
 \end{figure}
 
 
