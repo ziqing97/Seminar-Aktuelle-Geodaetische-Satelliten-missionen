@@ -1,5 +1,5 @@
 clearvars;close all;clc
-
+addpath(genpath('../fig2svg'))
 satellitestatistic = import_satistic_data('satellite_statistic.csv');
 
 fig = figure;
