@@ -1,6 +1,6 @@
 %% generate trend of one integration
 clc;close all;clearvars
-files = dir('E:\orbit\old_results\orbit_e0_middle');
+files = dir('H:\space_debris_orbit_integration\orbit_e0_low');
 countlist = zeros(length(files)-2,1);
 for i=1:length(files)
     if files(i).isdir
@@ -30,15 +30,15 @@ array_apo = array_a + array_a .* array_e;
 array_per = array_a - array_a .* array_e;
 
 figure
-subplot(2,1,1)
-pp = plot(array_t, array_e);
-xlabel('Time (Day)')
-ylabel('Eccentricity')
-set(gca,'FontSize',20)
-ax = ancestor(pp, 'axes');
-ax.YAxis.Exponent = 0;
-
-subplot(2,1,2)
+% subplot(2,1,1)
+% pp = plot(array_t, array_e);
+% xlabel('Time (Day)')
+% ylabel('Eccentricity')
+% set(gca,'FontSize',20)
+% ax = ancestor(pp, 'axes');
+% ax.YAxis.Exponent = 0;
+% 
+% subplot(2,1,2)
 hold on
 plot(array_t, (array_per-6378137)/1000)
 plot(array_t, (array_apo-6378137)/1000)
@@ -47,8 +47,9 @@ xlabel('Time (Day)')
 ylabel('Height [km]')
 set(gca,'FontSize',20)
 
-sgt = sgtitle('a-R = 600 km, e=0.05, A/m=0.004 m^2/kg as start value');
-sgt.FontSize = 24;
+sgt = sgtitle('a-R = 400 km, e=0, A/m=0.004 m^2/kg as start value');
+sgt.FontSize = 16;
+pbaspect([3,1,1])
 % %% 
 % path = 'E:\orbit\h600';
 % e_array = [0,0.01,0.02,0.03,0.04,0.05];

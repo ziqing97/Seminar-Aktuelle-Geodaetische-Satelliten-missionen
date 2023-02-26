@@ -1,0 +1,36 @@
+%% Header mit Deklarationen
+\input{extras/header}
+
+\begin{document}
+	% Römische Nummerierung für Sonderseiten, wie Verzeichnisse und Anhang
+	\pagenumbering{Roman}
+	\pagestyle{plain}
+	
+	%% Titelblatt
+	%\includepdf[pages=1]{extras/titelseite}
+	
+	
+	% Inhalt Kopf-/Fußzeile
+	\pagestyle{scrheadings}
+	\clearscrheadfoot            % Standardkram wegwerfen
+	\ohead[\pagemark]{\pagemark} % oben außen Seitenzahl 
+	
+	% Merke mir die römische Seitenzahl in 'roemisch' und setzte Nummeriernung 
+	% auf arabisch für die eigentlichen Kapitel
+	\cleardoublepage %\newpage
+	\newcounter{roemisch}
+	\setcounter{roemisch}{\value{page}}
+	\pagenumbering{arabic}
+	
+	\ifiscorrect\linespread{1.5}\selectfont% Zeilenabstand: 1 1/2 (für bessere Korrektur)
+	\else\fi
+	
+	%% Die einzelnen Kapitel
+	% Kopfzeile: links Kapitel, rechts Sektion
+	\clearscrheadfoot            % Standardkram wegwerfen
+	\ohead[\pagemark]{\pagemark} % oben außen Seitenzahl 
+	\ihead{\headmark}            % oben innen automatischer Abschnittsname
+	%\automark[]{section}
+	\input{Inhalt/Inhalt}
+	\bibliography{literatur/bib}
+\end{document}

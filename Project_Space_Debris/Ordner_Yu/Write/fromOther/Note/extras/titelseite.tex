@@ -1,0 +1,47 @@
+% Die Titelseite
+
+%% Header mit Deklarationen
+\input{titleheader}
+
+\pagestyle{empty}
+\begin{document}
+	
+	\begin{minipage}[c][\textheight][t]{\textwidth}
+		\centering
+		\begin{minipage}[c]{2cm}%
+			\includegraphics[height=2cm]{bilder/logo_gi}%
+		\end{minipage}
+		\hfill
+		\begin{minipage}[c]{8cm}
+			\centering
+			\vspace*{2mm}
+			\LARGE Universität Stuttgart\\[3mm]
+			\Large Institut für Navigation
+		\end{minipage}
+		\hfill
+		\begin{minipage}[c]{2cm}%
+			\includegraphics[height=2cm]{bilder/logo_uni-stuttgart}%
+		\end{minipage}\\[5mm]
+		\rule{\textwidth}{0.5pt}\\[10mm]
+		
+		%  \vspace*{2cm} % kein Bild: diese Zeile "einkommentieren" ...
+		\vspace*{1cm} % ... und diese "auskommentieren ..."
+		{\huge {~\\SLAM: INS}}\\[10mm]
+		\vspace*{1cm} % ... und diese "auskommentieren" ...
+		
+		%  \vspace*{4cm} % kein Bild: diese Zeile "einkommentieren" ...
+		\includegraphics[height=6cm]{bilder/logo_gi}\\[10mm] % ... und diese "auskommentieren"
+		
+		\vfill
+		
+		\Large Notizen im Studiengang\\[2mm]
+		\textbf{Geodäsie und Geoinformatik}\\[2mm]
+		an der Universität Stuttgart\\[10mm]
+		Jiaxin Liu\\[10mm]
+		Stuttgart, 2023\\[5mm]
+		\rule{\textwidth}{0.5pt}\\[5mm]
+		
+	\end{minipage}
+	
+\end{document}
+
