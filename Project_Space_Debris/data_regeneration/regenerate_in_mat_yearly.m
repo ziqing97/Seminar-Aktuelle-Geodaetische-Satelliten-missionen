@@ -18,7 +18,7 @@ for i=1:length(folder_list)
     k = 1;
     for j=1:length(file_list)
     if (file_list(j).isdir==0) && (file_list(j).name(end-2:end)~="txt")
-        tle_data = import_tle([file_list(j).folder,'\',file_list(j).name]);
+        tle_data = import_csv([file_list(j).folder,'\',file_list(j).name]);
         tle_struct(k).name = file_list(j).name(1:end-4);
         tle_struct(k).data = calc_other_orbit_element(tle_data);
         if ~mod(k,100)
